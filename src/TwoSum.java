@@ -1,22 +1,28 @@
+import java.util.HashSet;
+import java.util.Set;
+
 public class TwoSum {
+        public int[] twoSum(int[] nums, int target) {
 
-    public int maxSubArray(int[] nums) {
-        int maxFar = nums[0];
-        int maxHere = nums[0];
+            int [] result = null;
 
-        for(int i = 1; i < nums.length; i++){
-
-            if(nums[i] > maxHere + nums[i]){
-                maxHere = nums[i];
-            }else{
-                maxHere = maxHere + nums[i];
+            if(nums == null || nums.length < 2){
+                return null;
             }
 
-            if(maxFar < maxHere){
-                maxFar = maxHere;
+            Set<Integer> set = new HashSet<>();
+
+            for(int i = 0; i < nums.length; i++){
+                int value = target - nums[i];
+                if(set.contains(value)){
+                    result = new int[2];
+                    result[0] = nums[i];
+                    result[1] = value;
+                    i = nums.length + 1;
+                }
+                set.add(nums[i]);
             }
+
+            return result;
         }
-
-        return maxFar;
-    }
 }
