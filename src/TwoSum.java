@@ -5,12 +5,11 @@ public class TwoSum {
         public int[] twoSum(int[] nums, int target) {
 
             int [] result = null;
+            Set<Integer> set = new HashSet<>();
 
-            if(nums == null || nums.length < 2){
+            if(nums == null || nums.length < 2) {
                 return null;
             }
-
-            Set<Integer> set = new HashSet<>();
 
             for(int i = 0; i < nums.length; i++){
                 int value = target - nums[i];
@@ -18,7 +17,7 @@ public class TwoSum {
                     result = new int[2];
                     result[0] = nums[i];
                     result[1] = value;
-                    i = nums.length + 1;
+                    break;
                 }
                 set.add(nums[i]);
             }

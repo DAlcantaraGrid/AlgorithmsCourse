@@ -4,6 +4,7 @@ public class QueueStacks {
 
         private Stack<Integer> stack1;
         private Stack<Integer> stack2;
+        int front;
 
         public QueueStacks() {
             stack1 = new Stack<>();
@@ -11,6 +12,9 @@ public class QueueStacks {
         }
 
         public void push(int x) {
+            if(stack1.empty()){
+                front = x;
+            }
             stack1.push(x);
         }
 
@@ -27,7 +31,7 @@ public class QueueStacks {
             if(!stack2.isEmpty()){
                 return stack2.peek();
             }
-            return -1;
+            return front;
         }
 
         public boolean empty() {
