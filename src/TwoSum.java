@@ -15,8 +15,8 @@ public class TwoSum {
                 int value = target - nums[i];
                 if(set.contains(value)){
                     result = new int[2];
-                    result[0] = nums[i];
-                    result[1] = value;
+                    result[1] = nums[i];
+                    result[0] = value;
                     break;
                 }
                 set.add(nums[i]);
